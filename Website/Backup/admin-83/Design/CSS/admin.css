@@ -1,0 +1,375 @@
+/* Basic code for the entire page */
+:root {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Navbar and sidebar */
+/* Sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 70px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.border-top {
+  border-top: 1px solid #676767;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar-heading {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.sidebar .nav-item .nav-link {
+  color: black;
+  font-family: Montserrat, sans-serif;
+  transition: color 0.15s ease-in-out;
+}
+.sidebar .nav-item .nav-link:hover {
+  color: #184daf;
+}
+
+/* Navbar */
+
+.navbar {
+  font-family: Montserrat, sans-serif;
+}
+
+.navbar-brand {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.navbar .navbar-toggler {
+  top: 0.25rem;
+  right: 1rem;
+}
+
+.gosite {
+  padding: 0.2rem 0.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  background-color: #233e72;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.gosite:hover {
+  background-color: #184daf;
+}
+
+.infosite {
+  padding: 0.2rem 0.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  background-color: #a4562c;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.infosite:hover {
+  background-color: #d46326;
+}
+
+.dropdown-toggle::after {
+  color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80' width='40' height='40'%3E%3Crect width='100' height='20'%3E%3C/rect%3E%3Crect y='30' width='100' height='20'%3E%3C/rect%3E%3Crect y='60' width='100' height='20'%3E%3C/rect%3E%3C/svg%3E");
+}
+
+.custom-toggler .navbar-toggler {
+  border-color: black;
+}
+
+/* Page Tableaudebord */
+.card {
+  margin-bottom: 20px;
+  border: 0px;
+  border-radius: 20px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+.card-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.card-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.enlarge > span {
+  font-size: 30px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.card-category > .card-heading {
+  border-color: #2f806d;
+  color: white;
+  background-color: #2f806d;
+}
+
+.card-category > a {
+  color: #2f806d;
+}
+
+.card-category > a:hover {
+  color: #2adcb3;
+}
+
+.card-carte > .card-heading {
+  border-color: #a27b32;
+  color: white;
+  background-color: #a27b32;
+}
+
+.card-carte > a {
+  color: #a27b32;
+}
+
+.card-carte > a:hover {
+  color: #da9e2e;
+}
+
+.card-menu > .card-heading {
+  border-color: #772f80;
+  color: white;
+  background-color: #772f80;
+}
+
+.card-menu > a {
+  color: #772f80;
+}
+
+.card-menu > a:hover {
+  color: #bd30d0;
+}
+
+.card-galery > .card-heading {
+  border-color: #2f5e80;
+  color: white;
+  background-color: #2f5e80;
+}
+
+.card-galery > a {
+  color: #2f5e80;
+}
+
+.card-galery > a:hover {
+  color: #3993d4;
+}
+
+.card-client > .card-heading {
+  border-color: #83193e;
+  color: white;
+  background-color: #83193e;
+}
+
+.card-client > a {
+  color: #83193e;
+}
+
+.card-client > a:hover {
+  color: #d9185b;
+}
+
+.card-reservation > .card-heading {
+  border-color: #a23232;
+  color: white;
+  background-color: #a23232;
+}
+
+.card-reservation > a {
+  color: #a23232;
+}
+
+.card-reservation > a:hover {
+  color: #e71f1f;
+}
+
+/* Page categories */
+
+/* Page carte du restaurant */
+.picture-modal-view > img {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+}
+
+.picture-modal-view .caption {
+  padding: 9px;
+  color: #333;
+}
+
+.form-add-product {
+  border: 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 0.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  margin: auto;
+  width: 70%;
+}
+
+.form-add-product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.form-add-product-header > .main-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 0;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+}
+
+.form-add-product-body {
+  padding: 1rem 1.25rem;
+}
+
+/* Picture upload */
+/** AVATAR UPLOAD STYLE START ***/
+
+.picture-upload {
+  position: relative;
+  max-width: 205px;
+  margin: auto;
+}
+
+.picture-upload .picture-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+
+.picture-upload .picture-edit input {
+  display: none;
+}
+
+.picture-upload .picture-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #f5f5f5;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+
+.picture-upload .picture-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+
+.picture-upload .picture-edit input + label:after {
+  content: "\f093";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: black;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+
+.picture-upload .picture-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #233e72;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.picture-upload .picture-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
