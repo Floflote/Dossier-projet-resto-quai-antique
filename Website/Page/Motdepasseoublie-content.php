@@ -55,11 +55,10 @@
         Identifiant invalide !
       </div>
       <?php
-          }
 
-          /* Verify user account */
+            /* Verify user account */
 
-          if ($compte_customer === false) {
+          } elseif ($compte_customer === false) {
           ?>
       <div style="color: #b02a37; margin-bottom: 1rem;">
         Identifiant invalide !
@@ -73,7 +72,7 @@
           ?>
 
       <script type="text/javascript">
-      swal("Redirection", "Vous allez être redirigés afin de pouvoir changer le mot de passe !", "info").then((
+      Swal.fire("Redirection", "Vous allez être redirigés afin de pouvoir changer le mot de passe !", "info").then((
         value) => {
         window.location.replace("Motdepasseoublie-phasetwo.php");
       });

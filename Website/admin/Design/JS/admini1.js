@@ -15,10 +15,12 @@ $("#add_category_bttn").click(function () {
       dataType: "JSON",
       success: function (message) {
         if (message["alert"] == "Attention") {
-          swal("Attention", message["message"], "warning").then((value) => {});
+          Swal.fire("Attention", message["message"], "error").then(
+            (value) => {}
+          );
         }
         if (message["alert"] == "Valide") {
-          swal("Validé", message["message"], "success").then((value) => {
+          Swal.fire("Validé", message["message"], "success").then((value) => {
             window.location.replace("Categories.php");
           });
         }
@@ -43,11 +45,13 @@ $(".delete_category_btn").click(function () {
     method: "POST",
     data: { category_id: category_id, do: dataDo },
     success: function (data) {
-      swal("Supprimée", "La catégorie a bien été supprimée !", "success").then(
-        (value) => {
-          window.location.replace("Categories.php");
-        }
-      );
+      Swal.fire(
+        "Supprimée",
+        "La catégorie a bien été supprimée !",
+        "info"
+      ).then((value) => {
+        window.location.replace("Categories.php");
+      });
     },
     error: function (xhr, status, error) {
       alert("Une erreur est survenue lors de la requête. Veuillez réessayer.");
@@ -70,7 +74,7 @@ $(".delete_product_bttn").click(function () {
       do: dataDo,
     },
     success: function (message) {
-      swal("Supprimé", "Le produit a bien été supprimé !", "success").then(
+      Swal.fire("Supprimé", "Le produit a bien été supprimé !", "info").then(
         (value) => {
           window.location.replace("Carterestaurant.php");
         }
@@ -141,7 +145,7 @@ $(".delete_menu_button").click(function () {
       do: dataDo,
     },
     success: function (message) {
-      swal("Supprimé", "Le menu a bien été supprimé !", "success").then(
+      Swal.fire("Supprimé", "Le menu a bien été supprimé !", "info").then(
         (value) => {
           window.location.replace("Menu.php");
         }
@@ -168,7 +172,7 @@ $(".delete_picture_bttn").click(function () {
       do: dataDo,
     },
     success: function (message) {
-      swal("Supprimée", "L'image' a bien été supprimée !", "success").then(
+      Swal.fire("Supprimée", "L'image' a bien été supprimée !", "info").then(
         (value) => {
           window.location.replace("Galerie.php");
         }
@@ -214,10 +218,10 @@ $(".delete_customer_btn").click(function () {
     method: "POST",
     data: { customer_id: customer_id, do: dataDo },
     success: function (data) {
-      swal(
+      Swal.fire(
         "Supprimé",
         "Le compte client a bien été supprimé !",
-        "success"
+        "info"
       ).then((value) => {
         window.location.replace("Clients.php");
       });
@@ -240,10 +244,10 @@ $(".delete_reservation_btn").click(function () {
     method: "POST",
     data: { reservation_id: reservation_id, do: dataDo },
     success: function (data) {
-      swal(
+      Swal.fire(
         "Supprimée",
         "La réservation a bien été supprimée !",
-        "success"
+        "info"
       ).then((value) => {
         window.location.replace("Reservation.php");
       });

@@ -49,6 +49,7 @@ if ($task == 'Control') {
                 <th scope="col">Catégorie</th>
                 <th scope="col">Nom du produit</th>
                 <th scope="col">Description</th>
+                <th scope="col">Image</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Éditer</th>
               </tr>
@@ -65,6 +66,10 @@ if ($task == 'Control') {
                 echo "</td>";
                 echo "<td>";
                 echo $product['product_description'];
+                echo "</td>";
+                $src = "./Picture/" . $product['product_picture'];
+                echo '<td class="text-center">';
+                echo "<img src='" . $src . "' class='rounded'  style='max-width:110px; max-height:100px;'>";
                 echo "</td>";
                 echo '<td class="text-center">';
                 echo $product['product_price'] . "€";
@@ -371,7 +376,7 @@ elseif ($task == 'Add') {
       <!-- Ajout du produit validé -->
 
       <script type="text/javascript">
-        swal("Validé", "Le nouveau produit a bien été ajouté !", "success").then((value) => {
+        Swal.fire("Validé", "Le nouveau produit a bien été ajouté !", "success").then((value) => {
           window.location.replace("Carterestaurant.php");
         });
       </script>
@@ -595,7 +600,7 @@ elseif ($task == 'Modify') {
             <!-- Modification du produit validé-->
 
             <script type="text/javascript">
-              swal("Validé", "Le produit a bien été modifié", "success").then((value) => {
+              Swal.fire("Validé", "Le produit a bien été modifié", "success").then((value) => {
                 window.location.replace("Carterestaurant.php");
               });
             </script>
@@ -617,7 +622,7 @@ elseif ($task == 'Modify') {
             <!-- SUCCESS MESSAGE -->
 
             <script type="text/javascript">
-              swal("Validé", "Le produit a été modifié avec succès !", "success").then((value) => {
+              Swal.fire("Validé", "Le produit a été modifié avec succès !", "success").then((value) => {
                 window.location.replace("Carterestaurant.php");
               });
             </script>

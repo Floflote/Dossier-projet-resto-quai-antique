@@ -16,7 +16,7 @@ session_destroy();
 <head>
 
   <!-- Framework JS -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./Design/JS/sweetalert2.all.min.js"></script>
 
 </head>
 
@@ -24,7 +24,7 @@ session_destroy();
 
 <body>
   <script type="text/javascript">
-    swal("Déconnecté", "Votre session utilisateur a bien été fermée !", "info").then((value) => {
+    Swal.fire("Déconnecté", "Votre session utilisateur a bien été fermée !", "info").then((value) => {
       window.location.replace("index.php");
     });
   </script>

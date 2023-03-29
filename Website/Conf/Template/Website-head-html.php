@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="./Design/Font/css/all.min.css">
 
   <!-- My CSS -->
-  <link rel="stylesheet" type="text/css" href="./Design/CSS/website.css">
+  <link rel="stylesheet" type="text/css" href="./Design/CSS/website1.css">
 
   <!-- Add Google fonts -->
 
@@ -35,7 +35,7 @@
   </script>
 
   <!-- Framework JS -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./Design/JS/sweetalert2.all.min.js"></script>
 
 
 

@@ -167,6 +167,10 @@ h6 {
   transition: all 0.3s;
 }
 
+.product_category_name:hover {
+  color: #726023;
+}
+
 .active_category {
   color: #a4872c;
 }

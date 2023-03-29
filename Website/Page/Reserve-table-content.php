@@ -49,10 +49,10 @@ if ($user_connected == 0) {
         $statementaddresa->execute(array($selected_date, $selected_hour, $nbcustomer, $customer_mail, $customer_allerg));
     ?>
 
-    <!-- Ajout du menu validé -->
+    <!-- Ajout de la réservation validé -->
 
     <script type="text/javascript">
-    swal("Réservé", "Votre réservation a bien été prise en compte !", "success").then((value) => {
+    Swal.fire("Réservé", "Votre réservation a bien été prise en compte !", "success").then((value) => {
       window.location.replace("Reserve-table.php");
     });
     </script>

@@ -38,15 +38,16 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_name">Nom du restaurant</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z]/g,'');" value="<?php echo $options['setting_restaurant_name'] ?>" name="setting_restaurant_name">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z]/g,'');"
+                value="<?php echo $options['setting_restaurant_name'] ?>" name="setting_restaurant_name">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_name']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -58,15 +59,16 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_mail">Mail du restaurant</label>
-              <input type="text" class="form-control" value="<?php echo $options['setting_restaurant_mail'] ?>" name="setting_restaurant_mail">
+              <input type="text" class="form-control" value="<?php echo $options['setting_restaurant_mail'] ?>"
+                name="setting_restaurant_mail">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_mail']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -78,15 +80,16 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_phone">Téléphone du restaurant</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="<?php echo $options['setting_restaurant_phone'] ?>" name="setting_restaurant_phone">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                value="<?php echo $options['setting_restaurant_phone'] ?>" name="setting_restaurant_phone">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_phone']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -98,15 +101,16 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_address">Adresse du restaurant</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_address'] ?>" name="setting_restaurant_address">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_address'] ?>" name="setting_restaurant_address">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_address']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -118,15 +122,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_monday_hours">Horaires du lundi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_monday_hours'] ?>" name="setting_restaurant_monday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_monday_hours'] ?>"
+                name="setting_restaurant_monday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_monday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -138,15 +144,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_tuesday_hours">Horaires du mardi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_tuesday_hours'] ?>" name="setting_restaurant_tuesday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_tuesday_hours'] ?>"
+                name="setting_restaurant_tuesday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_tuesday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -158,15 +166,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_wednesday_hours">Horaires du mercredi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_wednesday_hours'] ?>" name="setting_restaurant_wednesday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_wednesday_hours'] ?>"
+                name="setting_restaurant_wednesday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_wednesday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -178,15 +188,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_thursday_hours">Horaires du jeudi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_thursday_hours'] ?>" name="setting_restaurant_thursday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_thursday_hours'] ?>"
+                name="setting_restaurant_thursday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_thursday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -198,15 +210,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_friday_hours">Horaires du vendredi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_friday_hours'] ?>" name="setting_restaurant_friday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_friday_hours'] ?>"
+                name="setting_restaurant_friday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_friday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -218,15 +232,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_saturday_hours">Horaires du samedi</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_saturday_hours'] ?>" name="setting_restaurant_saturday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_saturday_hours'] ?>"
+                name="setting_restaurant_saturday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_saturday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -238,15 +254,17 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_sunday_hours">Horaires du dimanche</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');" value="<?php echo $options['setting_restaurant_sunday_hours'] ?>" name="setting_restaurant_sunday_hours">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9é,-]/g,'');"
+                value="<?php echo $options['setting_restaurant_sunday_hours'] ?>"
+                name="setting_restaurant_sunday_hours">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_sunday_hours']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -258,15 +276,16 @@ try {
 
             <div style="margin-bottom: 1rem;">
               <label for="setting_restaurant_nbcustomers">Nombre de places</label>
-              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="<?php echo $options['setting_restaurant_nbcustomers'] ?>" name="setting_restaurant_nbcustomers">
+              <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                value="<?php echo $options['setting_restaurant_nbcustomers'] ?>" name="setting_restaurant_nbcustomers">
               <?php
               $form_admin = 0;
               if (isset($_POST['save_website_setting'])) {
                 if (empty(test_input($_POST['setting_restaurant_nbcustomers']))) {
               ?>
-                  <div class="invalid-feedback" style="display: block;">
-                    Le champ ne doit pas être nul !
-                  </div>
+              <div class="invalid-feedback" style="display: block;">
+                Le champ ne doit pas être nul !
+              </div>
               <?php
                   $form_admin = 1;
                 }
@@ -274,7 +293,8 @@ try {
               ?>
             </div>
 
-            <button type="submit" name="save_website_setting" class="btn btn-info float-end" style="border-radius: 30px; color: white;">
+            <button type="submit" name="save_website_setting" class="btn btn-info float-end"
+              style="border-radius: 30px; color: white;">
               Modifier le site
             </button>
           </div>
@@ -329,13 +349,13 @@ if (isset($_POST['save_website_setting']) && $_SERVER['REQUEST_METHOD'] == 'POST
       $rest_nbcustomers_m
     ));
 ?>
-    <!-- Modification du menu validé-->
+<!-- Modification du menu validé-->
 
-    <script type="text/javascript">
-      swal("Validé", "Les valeurs du site ont bien été modifiées", "success").then((value) => {
-        window.location.replace("Administrateur.php");
-      });
-    </script>
+<script type="text/javascript">
+Swal.fire("Validé", "Les valeurs du site ont bien été modifiées", "success").then((value) => {
+  window.location.replace("Administrateur.php");
+});
+</script>
 <?php
   } catch (Exception $e) {
     file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
