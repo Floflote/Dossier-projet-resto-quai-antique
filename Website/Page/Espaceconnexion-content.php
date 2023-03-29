@@ -6,8 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;">
   <div class="text-center py-5">
-    <h1
-      style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
+    <h1 style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
       Espace connexion
     </h1>
   </div>
@@ -19,16 +18,13 @@
 <section class="connect_compte_section p-5">
   <div class="container-fluid text-center">
     <h1>Se connecter à votre compte</h1>
-    <form method="POST" id="formconnect" class="needs-validation" action="Espaceconnexion.php"
-      enctype="multipart/form-data" novalidate>
+    <form method="POST" id="formconnect" class="needs-validation" action="Espaceconnexion.php" enctype="multipart/form-data" novalidate>
 
       <!-- Mail -->
 
       <div class="row col-sm-4 mx-auto" style="margin-bottom: 1rem;">
         <label for="connect_email" class="form-label">Identifiant (mail)</label>
-        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+"
-          value="<?php echo (isset($_POST['connect_email'])) ? htmlspecialchars($_POST['connect_email']) : '' ?>"
-          placeholder="monmail@mail.com" name="connect_email" id="connect_email" required>
+        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" value="<?php echo (isset($_POST['connect_email'])) ? htmlspecialchars($_POST['connect_email']) : '' ?>" placeholder="monmail@mail.com" name="connect_email" id="connect_email" required>
         <div class="invalid-feedback">
           Vous devez entrer une adresse mail valide !
         </div>
@@ -40,10 +36,7 @@
         <label for="connect_password" class="form-label">
           Mot de passe
         </label>
-        <input type="password" class="form-control"
-          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"
-          value="<?php echo (isset($_POST['connect_password'])) ? htmlspecialchars($_POST['connect_password']) : '' ?>"
-          placeholder="************" name="connect_password" id="connect_password" required>
+        <input type="password" class="form-control" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" value="<?php echo (isset($_POST['connect_password'])) ? htmlspecialchars($_POST['connect_password']) : '' ?>" placeholder="************" name="connect_password" id="connect_password" required>
         <div class="invalid-feedback">
           Vous devez entrer un mot de passe valide !
         </div>
@@ -71,14 +64,14 @@
               $_SESSION['password_co_session_admin'] = $connect_password;
       ?>
 
-      <!-- Connexion validée -->
+              <!-- Connexion validée -->
 
-      <script type="text/javascript">
-      swal("Connecté", "Bonjour administrateur !", "success").then((value) => {
-        window.location.replace("./admin/index.php");
-      });
-      </script>
-      <?php
+              <script type="text/javascript">
+                swal("Connecté", "Bonjour administrateur !", "success").then((value) => {
+                  window.location.replace("./admin/index.php");
+                });
+              </script>
+            <?php
               die();
             }
           }
@@ -87,10 +80,10 @@
 
           if ($compte_customer === false) {
             ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Identifiant et / ou mot de passe invalide !
-      </div>
-      <?php
+            <div style="color: #b02a37; margin-bottom: 1rem;">
+              Identifiant et / ou mot de passe invalide !
+            </div>
+            <?php
 
             /* Verify password */
 
@@ -106,21 +99,21 @@
               $_SESSION['user_connected'] = 1;
             ?>
 
-      <!-- Connexion validée -->
+              <!-- Connexion validée -->
 
-      <script type="text/javascript">
-      swal("Connecté", "Vous pouvez réserver une table dès maintenant !", "success").then((value) => {
-        window.location.replace("Reserve-table.php");
-      });
-      </script>
+              <script type="text/javascript">
+                swal("Connecté", "Vous pouvez réserver une table dès maintenant !", "success").then((value) => {
+                  window.location.replace("Reserve-table.php");
+                });
+              </script>
 
-      <?php
+            <?php
               die();
             } else {
             ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Identifiant et / ou mot de passe invalide !
-      </div>
+              <div style="color: #b02a37; margin-bottom: 1rem;">
+                Identifiant et / ou mot de passe invalide !
+              </div>
       <?php
             }
           }
@@ -132,8 +125,7 @@
       ?>
 
       <div style="margin-bottom: 1rem;">
-        <button type="submit" name="submit_connect_form" class="btn reserve-btn ms-3"
-          style="text-transform: uppercase;">
+        <button type="submit" name="submit_connect_form" class="btn reserve-btn ms-3" style="text-transform: uppercase;">
           Se connecter
         </button>
       </div>
@@ -146,7 +138,7 @@
 <section>
   <div class="container-fluid text-center">
     <p>Mot de passe oublié ?
-      <a class="links" href="#">Cliquer ici</a>
+      <a class="links" href="./Motdepasseoublie.php">Cliquer ici</a>
     </p>
     <p>Pas encore de compte ?
       <a class="links" href="./Creationcompte.php">En créer un ici</a>
