@@ -16,10 +16,6 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 18px;
-  background: linear-gradient(#ffffffd4, rgba(171, 156, 111, 0.3));
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 h1,
@@ -179,19 +175,14 @@ h6 {
   color: #a4872c;
 }
 
-.productscarte {
+.choice_category_content {
   display: none;
-}
-
-.show {
-  display: block !important;
 }
 
 .no_product {
   font-weight: bold;
   width: fit-content;
   color: #a4872c;
-  display: none;
 }
 
 .thumbnail {
@@ -213,14 +204,14 @@ h6 {
   width: 200px;
   height: 200px;
   position: relative;
-  border-radius: 30px;
+  border-radius: 100%;
   border: 6px solid #a4872c;
 }
 
 .product-picture .picture-preview > div {
   width: 100%;
   height: 100%;
-  border-radius: 23px;
+  border-radius: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
