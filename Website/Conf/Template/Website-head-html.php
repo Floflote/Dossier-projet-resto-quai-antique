@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="./Design/Font/css/all.min.css">
 
   <!-- My CSS -->
-  <link rel="stylesheet" type="text/css" href="./Design/CSS/website1.css">
+  <link rel="stylesheet" type="text/css" href="./Design/CSS/website.css">
 
   <!-- Add Google fonts -->
 

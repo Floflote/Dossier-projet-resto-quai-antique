@@ -6,8 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;">
   <div class="text-center py-5">
-    <h1
-      style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
+    <h1 style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
       Mot de passe oublié
     </h1>
   </div>
@@ -19,16 +18,13 @@
 <section class="forget_compte_section p-5">
   <div class="container-fluid text-center">
     <h1>Votre identifiant</h1>
-    <form method="POST" id="formpasswordforget" class="needs-validation" action="Motdepasseoublie.php"
-      enctype="multipart/form-data" novalidate>
+    <form method="POST" id="formpasswordforget" class="needs-validation" action="Motdepasseoublie.php" enctype="multipart/form-data" novalidate>
 
       <!-- Mail -->
 
       <div class="row col-sm-4 mx-auto" style="margin-bottom: 1rem;">
         <label for="forget_email" class="form-label">Identifiant (mail)</label>
-        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+"
-          value="<?php echo (isset($_POST['connect_email'])) ? htmlspecialchars($_POST['connect_email']) : '' ?>"
-          placeholder="monmail@mail.com" name="forget_email" id="forget_email" required>
+        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" value="<?php echo (isset($_POST['connect_email'])) ? htmlspecialchars($_POST['connect_email']) : '' ?>" placeholder="monmail@mail.com" name="forget_email" id="forget_email" required>
         <div class="invalid-feedback">
           Vous devez entrer une adresse mail valide !
         </div>
@@ -51,19 +47,19 @@
 
           if ($compte_admin) {
       ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Identifiant invalide !
-      </div>
-      <?php
+            <div style="color: #b02a37; margin-bottom: 1rem;">
+              Identifiant invalide !
+            </div>
+          <?php
 
             /* Verify user account */
 
           } elseif ($compte_customer === false) {
           ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Identifiant invalide !
-      </div>
-      <?php
+            <div style="color: #b02a37; margin-bottom: 1rem;">
+              Identifiant invalide !
+            </div>
+          <?php
 
             /* ID valid */
 
@@ -71,12 +67,12 @@
             $_SESSION['identifiant_forget_session'] = $forget_mail;
           ?>
 
-      <script type="text/javascript">
-      Swal.fire("Redirection", "Vous allez être redirigés afin de pouvoir changer le mot de passe !", "info").then((
-        value) => {
-        window.location.replace("Motdepasseoublie-phasetwo.php");
-      });
-      </script>
+            <script type="text/javascript">
+              Swal.fire("Redirection", "Vous allez être redirigés afin de pouvoir changer le mot de passe !", "info").then((
+                value) => {
+                window.location.replace("Motdepasseoublie-phasetwo.php");
+              });
+            </script>
 
       <?php
             die();
@@ -90,7 +86,7 @@
 
       <div style="margin-bottom: 1rem;">
         <button type="submit" name="submit_forget_form" class="btn reserve-btn ms-3" style="text-transform: uppercase;">
-          Envoyer
+          <i class="fa-solid fa-id-badge pe-2"></i>Envoyer
         </button>
       </div>
     </form>

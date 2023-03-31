@@ -113,3 +113,18 @@ function date_format_dd_mmmm_yyyy($date) // convertie la date au format "dd mois
   $date = $jour_long . ' ' . $mois_long . ' ' . $annee;
   return $date; // renvoie la nouvelle date
 }
+
+/* Verifier les horaires */
+function checkSchedule($a, $b, $c, $d)
+{
+  global $dayschedule;
+  if (($dayschedule[$a] == $dayschedule[$b]) && ($dayschedule[$a] == $dayschedule[$c])  && ($dayschedule[$a] == $dayschedule[$d])) {
+    return "Fermé";
+  } elseif (($dayschedule[$a] == $dayschedule[$b])) {
+    return $dayschedule[$c] . ' - ' . $dayschedule[$d];
+  } elseif (($dayschedule[$c] == $dayschedule[$d])) {
+    return $dayschedule[$a] . ' - ' . $dayschedule[$b];
+  } else {
+    return $dayschedule[$a] . ' - ' . $dayschedule[$b] . ' et ' . $dayschedule[$c] . ' - ' . $dayschedule[$d];
+  }
+}

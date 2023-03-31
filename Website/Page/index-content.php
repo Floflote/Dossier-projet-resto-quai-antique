@@ -1,9 +1,9 @@
 <?php
 
 try {
-  $statement_website_setting_content = $pdo->prepare("SELECT * FROM website_setting");
+  $statement_website_setting_content = $pdo->prepare("SELECT * FROM website_setting_v2");
   $statement_website_setting_content->execute();
-  $website_setting_content = $statement_website_setting_content->fetch();
+  $website_setting_content = $statement_website_setting_content->fetchAll();
 } catch (Exception $e) {
   file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
   echo 'Une erreur s\'est produite, veuillez réessayer: ';
@@ -17,7 +17,7 @@ try {
     <div class="row" style="flex-wrap: nowrap;">
       <div style="padding-top: 50px; color: white;">
         <h1 style="font-family: Montserrat, sans-serif;">
-          <?php echo $website_setting_content['setting_restaurant_name']; ?>,
+          <?php echo $website_setting_content[0]['setting_value']; ?>,
         </h1>
         <h2>
           votre restaurant qui répond à vos attentes !
@@ -28,6 +28,7 @@ try {
         </p>
         <div class="d-flex">
           <a href="#sectioncarte" class="btn see-product-btn me-3" style="text-transform: uppercase;">
+            <i class="fa-solid fa-utensils pe-2"></i>
             Voir la carte
           </a>
           <?php include('./Conf/Template/Btn-resa.php'); ?>
@@ -86,7 +87,7 @@ try {
 
 <section class="products py-4" id="sectioncarte" style="padding:100px 50px;">
   <div class="container">
-    <h2 class="text-center mb-4">Notre carte</h2>
+    <h2 class="text-center mb-4"><i class="fa-solid fa-utensils pe-2"></i>Notre carte</h2>
 
     <!-- Display products -->
 
@@ -168,7 +169,9 @@ try {
         }
         ?>
       </div>
-      <div class='no_product m-auto' id='productnoexist'>Pas de produits disponibles encore, revenez bientôt !</div>
+      <div class='no_product m-auto' id='productnoexist'>
+        <h5>Pas de produits disponibles encore, revenez bientôt !</h5>
+      </div>
     </div>
   </div>
 </section>
@@ -177,7 +180,7 @@ try {
 
 <section class="py-4" id="sectionmenu">
   <div class="container-fluid">
-    <h2 class="text-center mb-4">Nos Menus</h2>
+    <h2 class="text-center mb-4"><i class="fa-solid fa-book-open pe-2"></i>Nos Menus</h2>
     <div class="row justify-content-center">
 
       <?php
@@ -243,7 +246,7 @@ try {
 
 <section class="py-4" id="sectiongalerie">
   <div class="container-fluid p-4">
-    <h2 class="text-center mb-4">Galerie d'images</h2>
+    <h2 class="text-center mb-4"><i class="fa-solid fa-image pe-2"></i>Galerie d'images</h2>
 
     <?php
     try {

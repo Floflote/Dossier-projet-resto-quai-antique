@@ -17,19 +17,19 @@
         <div class="offcanvas-body justify-content-around">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Accueil</a>
+              <a class="nav-link" href="#"><i class="fa-solid fa-house-chimney pe-2"></i>Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sectioncarte">Carte</a>
+              <a class="nav-link" href="#sectioncarte"><i class="fa-solid fa-utensils pe-2"></i>Carte</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sectionmenu">Menus</a>
+              <a class="nav-link" href="#sectionmenu"><i class="fa-solid fa-book-open pe-2"></i>Menus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sectiongalerie">Galerie</a>
+              <a class="nav-link" href="#sectiongalerie"><i class="fa-solid fa-image pe-2"></i>Galerie</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sectioncontact">Contact</a>
+              <a class="nav-link" href="#sectioncontact"><i class="fa-solid fa-address-card pe-2"></i>Contact</a>
             </li>
           </ul>
         </div>

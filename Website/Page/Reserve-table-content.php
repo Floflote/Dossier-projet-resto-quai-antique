@@ -37,6 +37,8 @@ if ($user_connected == 0) {
   <div class="container-fluid">
 
     <?php
+    /* Add resa final */
+
     if (isset($_POST['submit_table_reservation_form']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
       $selected_date = $_POST['selected_date']; /* YYYY-MM-DD */
       $selected_hour = $_POST['selected_hour'];
@@ -53,7 +55,7 @@ if ($user_connected == 0) {
 
     <script type="text/javascript">
     Swal.fire("Réservé", "Votre réservation a bien été prise en compte !", "success").then((value) => {
-      window.location.replace("Reserve-table.php");
+      window.location.replace("index.php");
     });
     </script>
 
@@ -73,7 +75,7 @@ if ($user_connected == 0) {
     <!-- Form ask nb customers -->
 
     <form method="POST" action="Reserve-table.php">
-      <div class="row">
+      <div class="row align-items-end">
 
         <div class="col-md-3 col-xs-6">
           <div style="margin-bottom: 1rem;">
@@ -119,10 +121,16 @@ if ($user_connected == 0) {
 
         <div class="col-lg-3 col-md-3col-xs-6">
           <div style="margin-bottom: 1rem;">
+            <button type="submit" name="check_availability_submit" class="btn reserve-btn ms-3"
+              style="text-transform: uppercase;">
+              <i class="fa-solid fa-calendar-check pe-2"></i>Demander une réservation
+            </button>
+            <!--
             <label for="check_availability_submit" style="visibility: hidden;">Vérification de tables
               disponibles</label>
             <input type="submit" class="form-control btn reserve-btn ms-3" style="text-transform: uppercase;"
               name="check_availability_submit">
+  -->
           </div>
         </div>
       </div>
@@ -230,7 +238,7 @@ if ($user_connected == 0) {
       <div style="margin-bottom: 1rem;">
         <button type="submit" name="submit_table_reservation_form" class="btn reserve-btn ms-3"
           style="text-transform: uppercase;">
-          Faire une réservation
+          <i class="fa-solid fa-champagne-glasses pe-2"></i>Valider la réservation
         </button>
       </div>
     </form>

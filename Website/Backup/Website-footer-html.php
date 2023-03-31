@@ -1,16 +1,7 @@
 <?php
-try {
-  $statement_website_setting = $pdo->prepare("SELECT * FROM website_setting_v2");
-  $statement_website_setting->execute();
-  $website_setting_footer = $statement_website_setting->fetchAll();
-
-  $statement_schedule_setting = $pdo->prepare("SELECT * FROM restaurant_schedule");
-  $statement_schedule_setting->execute();
-  $schedule_setting_footer = $statement_schedule_setting->fetchAll();
-} catch (Exception $e) {
-  file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
-  echo 'Une erreur s\'est produite, veuillez réessayer: ';
-}
+$statement_website_setting = $pdo->prepare("SELECT * FROM website_setting");
+$statement_website_setting->execute();
+$website_setting_footer = $statement_website_setting->fetch();
 ?>
 
 </main>
@@ -40,18 +31,18 @@ try {
           <ul class="list-group list-group-flush">
             <li class="list-group-item" style="background:rgba(0,0,0,0);">
               <span class="underline-text">Notre adresse:</span>
-              <?php echo $website_setting_footer[3]['setting_value']; ?>
+              <?php echo $website_setting_footer['setting_restaurant_address']; ?>
             </li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);">
               <span class="underline-text">Notre mail:</span>
-              <a class="custom-link" href="mailto:<?php echo $website_setting_footer[1]['setting_value']; ?>">
-                <?php echo $website_setting_footer[1]['setting_value']; ?>
+              <a class="custom-link" href="mailto:<?php echo $website_setting_footer['setting_restaurant_mail']; ?>">
+                <?php echo $website_setting_footer['setting_restaurant_mail']; ?>
               </a>
             </li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);">
               <span class="underline-text">Notre téléphone:</span>
-              <a class="custom-link" href="tel:<?php echo $website_setting_footer[2]['setting_value']; ?>">
-                <?php echo $website_setting_footer[2]['setting_value']; ?>
+              <a class="custom-link" href="tel:<?php echo $website_setting_footer['setting_restaurant_phone']; ?>">
+                <?php echo $website_setting_footer['setting_restaurant_phone']; ?>
               </a>
             </li>
           </ul>
@@ -62,26 +53,21 @@ try {
         <div class="col-lg-4 col-md-6 mb-4">
           <h3 style="font-family: Montserrat, sans-serif; font-weight: bold;" class="text-center">Horaires d'ouverture
           </h3>
-          <?php
-          for ($i = 0; $i <= 27; $i++) {
-            $dayschedule[$i] = str_replace(':', 'h', date('H:i', strtotime($schedule_setting_footer[$i]['schedule_time'])));
-          }
-          ?>
           <ul class="list-group list-group-flush text-sm-center text-lg-start">
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Lundi:</span>
-              <?php echo checkSchedule(0, 1, 2, 3); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_monday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Mardi:</span>
-              <?php echo checkSchedule(4, 5, 6, 7); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_tuesday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Mercredi:</span>
-              <?php echo checkSchedule(8, 9, 10, 11); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_wednesday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Jeudi:</span>
-              <?php echo checkSchedule(12, 13, 14, 15); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_thursday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Vendredi:</span>
-              <?php echo checkSchedule(16, 17, 18, 19); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_friday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Samedi:</span>
-              <?php echo checkSchedule(20, 21, 22, 23); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_saturday_hours']; ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Dimanche:</span>
-              <?php echo checkSchedule(24, 25, 26, 27); ?></li>
+              <?php echo $website_setting_footer['setting_restaurant_sunday_hours']; ?></li>
           </ul>
         </div>
       </div>

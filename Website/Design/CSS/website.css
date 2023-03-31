@@ -60,6 +60,7 @@ h6 {
 
 .offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link {
   color: black;
+  transition: all 0.3s ease-in-out;
 }
 
 .offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link:hover {
@@ -78,6 +79,7 @@ h6 {
   background-color: #a4872c;
   color: white;
   font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 .reserve-btn:hover {
@@ -95,6 +97,7 @@ h6 {
 
 .scroll_to_top > a > i {
   color: #a4872c;
+  transition: all 0.3s ease-in-out;
 }
 
 .scroll_to_top > a > i:hover {
@@ -104,6 +107,7 @@ h6 {
 /* Footer */
 .list-inline > .list-inline-item > a > i {
   color: #a4872c;
+  transition: all 0.3s ease-in-out;
 }
 
 .list-inline > .list-inline-item > a > i:hover {
@@ -112,6 +116,7 @@ h6 {
 
 .list-group > .list-group-item > a {
   color: #a4872c;
+  transition: all 0.3s ease-in-out;
 }
 
 .list-group > .list-group-item > a:hover {
@@ -142,6 +147,7 @@ h6 {
   color: white;
   font-weight: bold;
   border-color: #a4872c;
+  transition: all 0.3s ease-in-out;
 }
 
 .see-product-btn:hover {
@@ -198,7 +204,7 @@ h6 {
   display: block;
   margin-bottom: 20px;
   line-height: 1.42857143;
-  transition: border 0.2s ease-in-out;
+  transition: border 0.3s ease-in-out;
   text-align: center;
   background: inherit;
 }

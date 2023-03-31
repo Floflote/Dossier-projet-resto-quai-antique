@@ -381,3 +381,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* Admin */
+hr.rounded {
+  border-top: 8px solid #a4872c;
+  border-radius: 5px;
+}
