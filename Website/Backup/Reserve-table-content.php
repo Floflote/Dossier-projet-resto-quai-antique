@@ -80,7 +80,9 @@ if ($user_connected == 0) {
         <div class="col-md-3 col-xs-6">
           <div style="margin-bottom: 1rem;">
             <label for="reservation_date">Date</label>
-            <input type="date" class="form-control" name="reservation_date" id="date">
+            <input type="date"
+              value="<?php echo (isset($_POST['reservation_date'])) ? $_POST['reservation_date'] : date('Y-m-d');  ?>"
+              class="form-control" name="reservation_date">
           </div>
         </div>
 
@@ -254,66 +256,3 @@ if ($user_connected == 0) {
     ?>
   </div>
 </section>
-
-<script>
-let field = document.querySelector('#date');
-// Handle date changes
-$(document).on("input", function() {
-
-  // Get the date
-  let date = new Date(field.value);
-  let day = date.getDay();
-  console.log(day);
-
-});
-</script>
-
-<?php
-$statement_schedule_setting = $pdo->prepare("SELECT * FROM restaurant_schedule");
-$statement_schedule_setting->execute();
-$schedule_setting = $statement_schedule_setting->fetchAll();
-for ($i = 0; $i <= 27; $i++) {
-  $checkschedules[$i] = strtotime($schedule_setting[$i]['schedule_time']);
-}
-function inputTime($bg, $ed, $day)
-{
-  global $cmp;
-  for ($inti = $bg; $inti <= ($ed - 60 * 60); $inti = $inti + 60 * 15) {
-?>
-<input type="radio" class="btn-check" name="timeradio" id="<?php echo $day . $cmp; ?>" autocomplete="off"
-  value="<?php echo date('H:i', $inti); ?>">
-<label class="btn reserve-btn m-2" for="<?php echo $day . $cmp; ?>"><?php echo date('H:i', $inti); ?></label>
-
-<?php
-    $cmp++;
-  }
-}
-echo '<div class="row" style="margin-bottom: 1rem;">';
-echo '<div class="btn-group" role="group" aria-label="Basic radio toggle button group">';
-$cmp = 0;
-for ($count = 0; $count <= 27; $count = $count + 2) {
-
-  if ($count >= 0 && $count <= 3) {
-    $weekdayd = 'monday';
-  } elseif ($count >= 4 && $count <= 7) {
-    $weekdayd = 'tuesday';
-  } elseif ($count >= 8 && $count <= 11) {
-    $weekdayd = 'wednesday';
-  } elseif ($count >= 12 && $count <= 15) {
-    $weekdayd = 'thursday';
-  } elseif ($count >= 16 && $count <= 19) {
-    $weekdayd = 'friday';
-  } elseif ($count >= 20 && $count <= 23) {
-    $weekdayd = 'saturday';
-  } elseif ($count >= 24 && $count <= 27) {
-    $weekdayd = 'sunday';
-  }
-  echo $count;
-  if ($checkschedules[$count] !== $checkschedules[$count + 1]) {
-    echo '<div class="col-4 ' . $weekdayd . ' weekday-display">';
-    inputTime($checkschedules[$count], $checkschedules[$count + 1], $weekdayd);
-    echo '</div>';
-  }
-}
-echo '</div>';
-echo '</div>';

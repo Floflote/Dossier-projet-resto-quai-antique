@@ -76,11 +76,7 @@ CREATE TABLE reservation
   reservation_nbcustomer INT(2) NOT NULL,
   reservation_mail VARCHAR(255) NOT NULL,
   reservation_allergen VARCHAR(255) NOT NULL,
-  customer_id CHAR(36) NOT NULL,
-  FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
-
-ALTER TABLE reservation MODIFY customer_id CHAR(36);
 
 INSERT INTO website_setting 
   (setting_restaurant_name, 

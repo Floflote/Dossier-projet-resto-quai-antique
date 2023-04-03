@@ -114,8 +114,8 @@ function date_format_dd_mmmm_yyyy($date) // convertie la date au format "dd mois
   return $date; // renvoie la nouvelle date
 }
 
-/* Verifier les horaires */
-function checkSchedule($a, $b, $c, $d)
+/* Afficher les horaires */
+function displaySchedule($a, $b, $c, $d)
 {
   global $dayschedule;
   if (($dayschedule[$a] == $dayschedule[$b]) && ($dayschedule[$a] == $dayschedule[$c])  && ($dayschedule[$a] == $dayschedule[$d])) {
@@ -128,3 +128,33 @@ function checkSchedule($a, $b, $c, $d)
     return $dayschedule[$a] . ' - ' . $dayschedule[$b] . ' et ' . $dayschedule[$c] . ' - ' . $dayschedule[$d];
   }
 }
+
+/* Verifier resto fermé resa */
+function checkClosed($selectDay)
+{
+  switch ($selectDay) {
+    case 'monday':
+      return displaySchedule(0, 1, 2, 3);
+      break;
+    case 'tuesday':
+      return displaySchedule(4, 5, 6, 7);
+      break;
+    case 'wednesday':
+      return displaySchedule(8, 9, 10, 11);
+      break;
+    case 'thursday':
+      return displaySchedule(12, 13, 14, 15);
+      break;
+    case 'friday':
+      return displaySchedule(16, 17, 18, 19);
+      break;
+    case 'saturday':
+      return displaySchedule(20, 21, 22, 23);
+      break;
+    case 'sunday':
+      return displaySchedule(24, 25, 26, 27);
+      break;
+  }
+}
+
+/* Verifier resa resto ouvert */

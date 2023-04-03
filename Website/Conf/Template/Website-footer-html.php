@@ -6,7 +6,10 @@ try {
 
   $statement_schedule_setting = $pdo->prepare("SELECT * FROM restaurant_schedule");
   $statement_schedule_setting->execute();
-  $schedule_setting_footer = $statement_schedule_setting->fetchAll();
+  $schedule_setting = $statement_schedule_setting->fetchAll();
+  for ($i = 0; $i <= 27; $i++) {
+    $dayschedule[$i] = str_replace(':', 'h', date('H:i', strtotime($schedule_setting[$i]['schedule_time'])));
+  }
 } catch (Exception $e) {
   file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
   echo 'Une erreur s\'est produite, veuillez réessayer: ';
@@ -27,9 +30,12 @@ try {
         <div class="col-lg-4 col-md-6 mb-4 text-center">
           <img src="./Picture/Logo.svg" alt="Logo Quai Antique" class="logo-footer mb-4">
           <ul class="list-inline">
-            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fa-brands fa-facebook fa-2x"></i></a></li>
-            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Instagram"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
-            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Twitter"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Facebook"><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Instagram"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+            <li class="list-inline-item mx-4"><a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Twitter"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
           </ul>
         </div>
 
@@ -62,26 +68,21 @@ try {
         <div class="col-lg-4 col-md-6 mb-4">
           <h3 style="font-family: Montserrat, sans-serif; font-weight: bold;" class="text-center">Horaires d'ouverture
           </h3>
-          <?php
-          for ($i = 0; $i <= 27; $i++) {
-            $dayschedule[$i] = str_replace(':', 'h', date('H:i', strtotime($schedule_setting_footer[$i]['schedule_time'])));
-          }
-          ?>
           <ul class="list-group list-group-flush text-sm-center text-lg-start">
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Lundi:</span>
-              <?php echo checkSchedule(0, 1, 2, 3); ?></li>
+              <?php echo displaySchedule(0, 1, 2, 3); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Mardi:</span>
-              <?php echo checkSchedule(4, 5, 6, 7); ?></li>
+              <?php echo displaySchedule(4, 5, 6, 7); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Mercredi:</span>
-              <?php echo checkSchedule(8, 9, 10, 11); ?></li>
+              <?php echo displaySchedule(8, 9, 10, 11); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Jeudi:</span>
-              <?php echo checkSchedule(12, 13, 14, 15); ?></li>
+              <?php echo displaySchedule(12, 13, 14, 15); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Vendredi:</span>
-              <?php echo checkSchedule(16, 17, 18, 19); ?></li>
+              <?php echo displaySchedule(16, 17, 18, 19); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Samedi:</span>
-              <?php echo checkSchedule(20, 21, 22, 23); ?></li>
+              <?php echo displaySchedule(20, 21, 22, 23); ?></li>
             <li class="list-group-item" style="background:rgba(0,0,0,0);"><span class="underline-text">Dimanche:</span>
-              <?php echo checkSchedule(24, 25, 26, 27); ?></li>
+              <?php echo displaySchedule(24, 25, 26, 27); ?></li>
           </ul>
         </div>
       </div>
