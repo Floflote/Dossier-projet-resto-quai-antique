@@ -87,17 +87,6 @@ function productRemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("btnContainer");
-var btns = btnContainer.getElementsByClassName("product_category_name");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active_category");
-    current[0].className = current[0].className.replace(" active_category", "");
-    this.className += " active_category";
-  });
-}
-
 // No-product
 $(document).on("click", "body", function () {
   var $productexist = $(".productexist div");
@@ -106,5 +95,33 @@ $(document).on("click", "body", function () {
     $productnoexist.addClass("show");
   } else {
     $productnoexist.removeClass("show");
+  }
+});
+
+//Resa
+let field = document.querySelector("#date");
+// Handle date changes
+$("#date").on("input", function () {
+  var $days = [
+    $(".sunday"),
+    $(".monday"),
+    $(".tuesday"),
+    $(".wednesday"),
+    $(".thursday"),
+    $(".friday"),
+    $(".saturday"),
+  ];
+  var $alldays = $(".weekday-display");
+
+  // Get the date
+  let date = new Date(field.value);
+  let day = date.getDay();
+
+  //Display schedules
+  for (i = 0; i <= 6; i++) {
+    if (day == i) {
+      $alldays.removeClass("show");
+      $days[i].addClass("show");
+    }
   }
 });

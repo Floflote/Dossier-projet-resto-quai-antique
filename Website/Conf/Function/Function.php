@@ -157,4 +157,16 @@ function checkClosed($selectDay)
   }
 }
 
-/* Verifier resa resto ouvert */
+/* Afficher horaires selon dates */
+function inputTime($bg, $ed, $day)
+{
+  global $cmp;
+  for ($inti = $bg; $inti <= ($ed - 60 * 60); $inti = $inti + 60 * 15) {
+?>
+    <input type="radio" class="btn-check form-check-input" name="timeradio" id="<?php echo $day . $cmp; ?>" autocomplete="off" value="<?php echo date('H:i', $inti); ?>" required>
+    <label class="btn reserve-btn m-2" for="<?php echo $day . $cmp; ?>"><?php echo str_replace(':', 'h', date('H:i', $inti)); ?></label>
+
+<?php
+    $cmp++;
+  }
+}

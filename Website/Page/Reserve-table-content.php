@@ -6,8 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;">
   <div class="text-center py-5">
-    <h1
-      style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
+    <h1 style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
       Réserver une table
     </h1>
   </div>
@@ -19,14 +18,14 @@
 <?php
 if ($user_connected == 0) {
 ?>
-<section class="p-5">
-  <p><strong>Vous pouvez réserver une table avec un compte client afin d’être plus rapide.
-    </strong></p>
-  <p><strong>Vous avez un compte et n’êtes pas connecté ?
-    </strong><a class="links" href="./Espaceconnexion.php">Se connecter</a></p>
-  <p><strong>Pas encore de compte ?
-    </strong><a class="links" href="./Creationcompte.php">En créer un ici</a></p>
-</section>
+  <section class="p-5">
+    <p><strong>Vous pouvez réserver une table avec un compte client afin d’être plus rapide.
+      </strong></p>
+    <p><strong>Vous avez un compte et n’êtes pas connecté ?
+      </strong><a class="links" href="./Espaceconnexion.php">Se connecter</a></p>
+    <p><strong>Pas encore de compte ?
+      </strong><a class="links" href="./Creationcompte.php">En créer un ici</a></p>
+  </section>
 <?php
 }
 ?>
@@ -51,13 +50,13 @@ if ($user_connected == 0) {
         $statementaddresa->execute(array($selected_date, $selected_hour, $nbcustomer, $customer_mail, $customer_allerg));
     ?>
 
-    <!-- Ajout de la réservation validé -->
+        <!-- Ajout de la réservation validé -->
 
-    <script type="text/javascript">
-    Swal.fire("Réservé", "Votre réservation a bien été prise en compte !", "success").then((value) => {
-      window.location.replace("index.php");
-    });
-    </script>
+        <script type="text/javascript">
+          Swal.fire("Réservé", "Votre réservation a bien été prise en compte !", "success").then((value) => {
+            window.location.replace("index.php");
+          });
+        </script>
 
     <?php
       } catch (Exception $e) {
@@ -74,63 +73,139 @@ if ($user_connected == 0) {
 
     <!-- Form ask nb customers -->
 
-    <form method="POST" action="Reserve-table.php">
+    <form method="POST" id="asknbcustomers" action="Reserve-table.php" class="needs-validation" novalidate>
       <div class="row align-items-end">
 
-        <div class="col-md-3 col-xs-6">
-          <div style="margin-bottom: 1rem;">
-            <label for="reservation_date">Date</label>
-            <input type="date" class="form-control" name="reservation_date" id="date">
+        <div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div style="margin-bottom: 1rem;">
+              <label for="reservation_date">Date</label>
+              <input type="date" class="form-control" name="reservation_date" id="date" value="<?php echo (isset($_POST['reservation_date'])) ? $_POST['reservation_date'] : "";  ?>" required>
+              <div class="invalid-feedback">Veuillez choisir une date</div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-3 col-xs-6">
-          <div style="margin-bottom: 1rem;">
-            <label for="reservation_hour">Horaires</label>
-            <input type="time"
-              value="<?php echo (isset($_POST['reservation_hour'])) ? $_POST['reservation_hour'] : date('H:i');  ?>"
-              class="form-control" name="reservation_hour">
+        <?php
+        $statement_schedule_setting = $pdo->prepare("SELECT * FROM restaurant_schedule");
+        $statement_schedule_setting->execute();
+        $schedule_setting = $statement_schedule_setting->fetchAll();
+        for ($i = 0; $i <= 27; $i++) {
+          $checkschedules[$i] = strtotime($schedule_setting[$i]['schedule_time']);
+        }
+        ?>
+        <div class="row" style="margin-bottom: 1rem;">
+          <div>Horaires</div>
+          <?php
+          if (isset($_POST['timeradio'])) {
+            echo '<div> Vous avez choisi l\'horaire de <span class="btn reserve-btn" style="cursor: default;">' . str_replace(':', 'h', date('H:i', strtotime($_POST['timeradio']))) . '</span></div>';
+          }
+          ?>
+          <div class="btn-group" role="group">
+            <div class="form-check col-12">
+
+              <?php
+              $cmp = 0;
+              for ($count = 0; $count <= 27; $count = $count + 2) {
+
+                if ($count >= 0 && $count <= 1) {
+                  $weekdayd = 'monday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 2 && $count <= 3) {
+                  $weekdayd = 'monday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 4 && $count <= 5) {
+                  $weekdayd = 'tuesday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 6 && $count <= 7) {
+                  $weekdayd = 'tuesday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 8 && $count <= 9) {
+                  $weekdayd = 'wednesday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 10 && $count <= 11) {
+                  $weekdayd = 'wednesday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 12 && $count <= 13) {
+                  $weekdayd = 'thursday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 14 && $count <= 15) {
+                  $weekdayd = 'thursday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 16 && $count <= 17) {
+                  $weekdayd = 'friday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 18 && $count <= 19) {
+                  $weekdayd = 'friday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 20 && $count <= 21) {
+                  $weekdayd = 'saturday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 22 && $count <= 23) {
+                  $weekdayd = 'saturday';
+                  $timeday = "Soir:";
+                } elseif ($count >= 24 && $count <= 25) {
+                  $weekdayd = 'sunday';
+                  $timeday = "Midi:";
+                } elseif ($count >= 26 && $count <= 27) {
+                  $weekdayd = 'sunday';
+                  $timeday = "Soir:";
+                }
+
+                if ($checkschedules[$count] !== $checkschedules[$count + 1]) {
+                  echo '<div class="col-12 ' . $weekdayd . ' weekday-display">';
+                  echo '<div>' . $timeday . '</div>';
+                  inputTime($checkschedules[$count], $checkschedules[$count + 1], $weekdayd);
+                  echo '<div class="invalid-feedback">Veuillez choisir un horaire</div>';
+                  echo '</div>';
+                } elseif ($count <= 24) {
+                  if ($checkschedules[$count] == $checkschedules[$count + 1] && $checkschedules[$count] == $checkschedules[$count + 2] && $checkschedules[$count] == $checkschedules[$count + 3]) {
+                    echo '<div class="col-12 ' . $weekdayd . ' weekday-display">';
+                    echo '<div>';
+                    echo '<span><strong>Le restaurant est fermé à cette date, désolé !</strong></span>';
+                    echo '</div>';
+                    echo '</div>';
+                  }
+                }
+              }
+              ?>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-3 col-xs-6">
-          <div style="margin-bottom: 1rem;">
-            <label for="reservation_nbcustomer">Nombre de convives</label>
-            <select class="form-select" aria-label="Select nombre convives" name="reservation_nbcustomer">
-              <option value="1"
-                <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 1)) ? "selected" : "";  ?>>
-                1 personne
-              </option>
-              <option value="2"
-                <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 2)) ? "selected" : "";  ?>>
-                2 personnes
-              </option>
-              <option value="3"
-                <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 3)) ? "selected" : "";  ?>>
-                3 personnes
-              </option>
-              <option value="4"
-                <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 4)) ? "selected" : "";  ?>>
-                4 personnes
-              </option>
-            </select>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div style="margin-bottom: 1rem;">
+              <label for="reservation_nbcustomer">Nombre de convives</label>
+              <select class="form-select" aria-label="Select nombre convives" name="reservation_nbcustomer">
+                <option value="1" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 1)) ? "selected" : "";  ?> <?php echo (isset($_POST['reservation_nbcustomer']) && ($_POST['reservation_nbcustomer'] == 1)) ? "selected" : "";  ?>>
+                  1 personne
+                </option>
+                <option value="2" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 2)) ? "selected" : "";  ?> <?php echo (isset($_POST['reservation_nbcustomer']) && ($_POST['reservation_nbcustomer'] == 2)) ? "selected" : "";  ?>>
+                  2 personnes
+                </option>
+                <option value="3" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 3)) ? "selected" : "";  ?> <?php echo (isset($_POST['reservation_nbcustomer']) && ($_POST['reservation_nbcustomer'] == 3)) ? "selected" : "";  ?>>
+                  3 personnes
+                </option>
+                <option value="4" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 4)) ? "selected" : "";  ?> <?php echo (isset($_POST['reservation_nbcustomer']) && ($_POST['reservation_nbcustomer'] == 4)) ? "selected" : "";  ?>>
+                  4 personnes
+                </option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-3col-xs-6">
-          <div style="margin-bottom: 1rem;">
-            <button type="submit" name="check_availability_submit" class="btn reserve-btn ms-3"
-              style="text-transform: uppercase;">
-              <i class="fa-solid fa-calendar-check pe-2"></i>Demander une réservation
-            </button>
-            <!--
-            <label for="check_availability_submit" style="visibility: hidden;">Vérification de tables
-              disponibles</label>
-            <input type="submit" class="form-control btn reserve-btn ms-3" style="text-transform: uppercase;"
-              name="check_availability_submit">
-  -->
+        <div class="row">
+          <div class="col-lg-3 col-md-3col-xs-6">
+            <div style="margin-bottom: 1rem;">
+              <button type="submit" name="check_availability_submit" class="btn reserve-btn ms-3" style="text-transform: uppercase;">
+                <i class="fa-solid fa-calendar-check pe-2"></i>Demander une réservation
+              </button>
+            </div>
           </div>
         </div>
+
       </div>
     </form>
 
@@ -140,8 +215,10 @@ if ($user_connected == 0) {
     if (isset($_POST['check_availability_submit'])) {
       $selected_date = $_POST['reservation_date']; /* YYYY-MM-DD */
       $weekday = strtolower(date('l', strtotime($selected_date))); /* monday etc */
-      $selected_hour = $_POST['reservation_hour'];
+      $selected_hour = $_POST['timeradio'];
       $nbcustomer = $_POST['reservation_nbcustomer'];
+      $dateoftheday = date('Y-m-d H:i');
+      $datebycustomer = date($selected_date . " " . $selected_hour);
 
       try {
         $statement_website_set = $pdo->prepare('SELECT * FROM website_setting_v2');
@@ -166,154 +243,86 @@ if ($user_connected == 0) {
       }
 
       /* Resto closed */
-      if (checkClosed($weekday) == "Fermé") {
+      if (strtotime($datebycustomer) < strtotime($dateoftheday)) {
     ?>
 
-    <div>
-      <span><strong>Le restaurant est fermé à cette date, désolé !</strong></span>
-    </div>
+        <div>
+          <span><strong>Impossible de choisir cette date car elle est déjà passée...</strong></span>
+        </div>
 
-    <?php
+      <?php
         /* Out of place */
       } elseif ($total_of_the_date_and_form > $website_set_form[4]['setting_value']) {
       ?>
 
-    <div>
-      <span><strong>Plus de places disponibles à cette date</strong></span>
-    </div>
+        <div>
+          <span><strong>Plus de places disponibles à cette date</strong></span>
+        </div>
 
-    <?php
+      <?php
         /* Availability ok */
       } else {
       ?>
 
-    <form method="POST" id="formresatab" class="needs-validation" action="Reserve-table.php" novalidate>
-      <input type="hidden" name="selected_date" value="<?php echo $selected_date ?>">
-      <input type="hidden" name="selected_hour" value="<?php echo $selected_hour ?>">
-      <input type="hidden" name="reservation_nbcustomer" value="<?php echo $nbcustomer ?>">
+        <form method="POST" id="formresatab" class="needs-validation" action="Reserve-table.php" novalidate>
+          <input type="hidden" name="selected_date" value="<?php echo $selected_date ?>">
+          <input type="hidden" name="selected_hour" value="<?php echo $selected_hour ?>">
+          <input type="hidden" name="reservation_nbcustomer" value="<?php echo $nbcustomer ?>">
 
-      <div>
+          <div>
 
-        <!-- Email -->
+            <!-- Email -->
 
-        <div class="row" style="margin-bottom: 1rem;">
-          <div class="col-sm-6">
-            <label for="customer_email" class="form-label">
-              <h5>Votre adresse mail</h5>
-            </label>
-            <input type="email" name="customer_email" id="customer_email" class="form-control"
-              placeholder="monmail@mail.com" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+"
-              value="<?php echo $identifiant_co_session; ?>" required>
-            <div class="invalid-feedback">
-              Format de l'email invalide !
+            <div class="row" style="margin-bottom: 1rem;">
+              <div class="col-sm-6">
+                <label for="customer_email" class="form-label">
+                  <h5>Votre adresse mail</h5>
+                </label>
+                <input type="email" name="customer_email" id="customer_email" class="form-control" placeholder="monmail@mail.com" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" value="<?php echo $identifiant_co_session; ?>" required>
+                <div class="invalid-feedback">
+                  Format de l'email invalide !
+                </div>
+              </div>
+            </div>
+
+            <!-- Allergen -->
+
+            <div class="row" style="margin-bottom: 1rem;">
+              <div class="col-sm-6">
+                <label for="customer_allergen" class="form-label">
+                  <h5>Des allergènes à signaler ?</h5>
+                </label>
+                <textarea name="customer_allergen" class="form-control" id="customer_allergen" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255" placeholder="Aucun" required><?php echo $allergen_co_session; ?></textarea>
+                <div class="invalid-feedback">
+                  Vous devez précisez vos allergènes. Si aucun, mettre Aucun !
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Allergen -->
+          <!-- Checkbox -->
 
-        <div class="row" style="margin-bottom: 1rem;">
-          <div class="col-sm-6">
-            <label for="customer_allergen" class="form-label">
-              <h5>Des allergènes à signaler ?</h5>
+          <div class="col-12 mb-4">
+            <div class="form-check"></div>
+            <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+              Veuillez accepter d'être contacté(e) par votre adresse email
             </label>
-            <textarea name="customer_allergen" class="form-control" id="customer_allergen"
-              onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255"
-              placeholder="Aucun" required><?php echo $allergen_co_session; ?></textarea>
-            <div class="invalid-feedback">
-              Vous devez précisez vos allergènes. Si aucun, mettre Aucun !
+            <div class="invalid-feedback">Veuillez accepter la condition.</div>
+            <div class="valid-feedback">
+              J'accepte d'être contacté(é) par mon adresse mail
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Checkbox -->
-
-      <div class="col-12 mb-4">
-        <div class="form-check"></div>
-        <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
-        <label class="form-check-label" for="gridCheck">
-          Veuillez accepter d'être contacté(e) par votre adresse email
-        </label>
-        <div class="invalid-feedback">Veuillez accepter la condition.</div>
-        <div class="valid-feedback">
-          J'accepte d'être contacté(é) par mon adresse mail
-        </div>
-      </div>
-
-      <div style="margin-bottom: 1rem;">
-        <button type="submit" name="submit_table_reservation_form" class="btn reserve-btn ms-3"
-          style="text-transform: uppercase;">
-          <i class="fa-solid fa-champagne-glasses pe-2"></i>Valider la réservation
-        </button>
-      </div>
-    </form>
+          <div style="margin-bottom: 1rem;">
+            <button type="submit" name="submit_table_reservation_form" class="btn reserve-btn ms-3" style="text-transform: uppercase;">
+              <i class="fa-solid fa-champagne-glasses pe-2"></i>Valider la réservation
+            </button>
+          </div>
+        </form>
     <?php
       }
     }
     ?>
   </div>
 </section>
-
-<script>
-let field = document.querySelector('#date');
-// Handle date changes
-$(document).on("input", function() {
-
-  // Get the date
-  let date = new Date(field.value);
-  let day = date.getDay();
-  console.log(day);
-
-});
-</script>
-
-<?php
-$statement_schedule_setting = $pdo->prepare("SELECT * FROM restaurant_schedule");
-$statement_schedule_setting->execute();
-$schedule_setting = $statement_schedule_setting->fetchAll();
-for ($i = 0; $i <= 27; $i++) {
-  $checkschedules[$i] = strtotime($schedule_setting[$i]['schedule_time']);
-}
-function inputTime($bg, $ed, $day)
-{
-  global $cmp;
-  for ($inti = $bg; $inti <= ($ed - 60 * 60); $inti = $inti + 60 * 15) {
-?>
-<input type="radio" class="btn-check" name="timeradio" id="<?php echo $day . $cmp; ?>" autocomplete="off"
-  value="<?php echo date('H:i', $inti); ?>">
-<label class="btn reserve-btn m-2" for="<?php echo $day . $cmp; ?>"><?php echo date('H:i', $inti); ?></label>
-
-<?php
-    $cmp++;
-  }
-}
-echo '<div class="row" style="margin-bottom: 1rem;">';
-echo '<div class="btn-group" role="group" aria-label="Basic radio toggle button group">';
-$cmp = 0;
-for ($count = 0; $count <= 27; $count = $count + 2) {
-
-  if ($count >= 0 && $count <= 3) {
-    $weekdayd = 'monday';
-  } elseif ($count >= 4 && $count <= 7) {
-    $weekdayd = 'tuesday';
-  } elseif ($count >= 8 && $count <= 11) {
-    $weekdayd = 'wednesday';
-  } elseif ($count >= 12 && $count <= 15) {
-    $weekdayd = 'thursday';
-  } elseif ($count >= 16 && $count <= 19) {
-    $weekdayd = 'friday';
-  } elseif ($count >= 20 && $count <= 23) {
-    $weekdayd = 'saturday';
-  } elseif ($count >= 24 && $count <= 27) {
-    $weekdayd = 'sunday';
-  }
-  echo $count;
-  if ($checkschedules[$count] !== $checkschedules[$count + 1]) {
-    echo '<div class="col-4 ' . $weekdayd . ' weekday-display">';
-    inputTime($checkschedules[$count], $checkschedules[$count + 1], $weekdayd);
-    echo '</div>';
-  }
-}
-echo '</div>';
-echo '</div>';

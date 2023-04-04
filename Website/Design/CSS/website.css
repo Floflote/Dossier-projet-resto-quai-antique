@@ -290,3 +290,25 @@ h6 {
 .links:hover {
   color: #726023;
 }
+
+.monday,
+.tuesday,
+.wednesday,
+.thursday,
+.friday,
+.saturday,
+.sunday {
+  display: none;
+}
+
+.btn-check:checked + .btn {
+  color: #a4872c;
+  background-color: white;
+  border-color: #a4872c;
+}
+
+.btn-check + .btn:hover {
+  color: white;
+  background-color: #726023;
+  border-color: #726023;
+}
