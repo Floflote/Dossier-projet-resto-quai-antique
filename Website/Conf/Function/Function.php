@@ -120,39 +120,96 @@ function displaySchedule($a, $b, $c, $d)
   global $dayschedule;
   if (($dayschedule[$a] == $dayschedule[$b]) && ($dayschedule[$a] == $dayschedule[$c])  && ($dayschedule[$a] == $dayschedule[$d])) {
     return "Fermé";
-  } elseif (($dayschedule[$a] == $dayschedule[$b])) {
+  } elseif ($dayschedule[$a] == $dayschedule[$b]) {
     return $dayschedule[$c] . ' - ' . $dayschedule[$d];
-  } elseif (($dayschedule[$c] == $dayschedule[$d])) {
+  } elseif ($dayschedule[$c] == $dayschedule[$d]) {
     return $dayschedule[$a] . ' - ' . $dayschedule[$b];
   } else {
     return $dayschedule[$a] . ' - ' . $dayschedule[$b] . ' et ' . $dayschedule[$c] . ' - ' . $dayschedule[$d];
   }
 }
 
-/* Verifier resto fermé resa */
-function checkClosed($selectDay)
+/* Verifier horaires resa */
+function checkSchedu($selectDay, $selectTime)
 {
+  global $checkschedule;
   switch ($selectDay) {
     case 'monday':
-      return displaySchedule(0, 1, 2, 3);
+      if (strtotime($selectTime) >= strtotime($checkschedule[0]) && strtotime($selectTime) <= strtotime($checkschedule[1])) {
+        $out['b'] = $checkschedule[0];
+        $out['e'] = $checkschedule[1];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[2];
+        $out['e'] = $checkschedule[3];
+        return $out;
+      }
       break;
     case 'tuesday':
-      return displaySchedule(4, 5, 6, 7);
+      if (strtotime($selectTime) >= strtotime($checkschedule[4]) && strtotime($selectTime) <= strtotime($checkschedule[5])) {
+        $out['b'] = $checkschedule[4];
+        $out['e'] = $checkschedule[5];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[6];
+        $out['e'] = $checkschedule[7];
+        return $out;
+      }
       break;
     case 'wednesday':
-      return displaySchedule(8, 9, 10, 11);
+      if (strtotime($selectTime) >= strtotime($checkschedule[8]) && strtotime($selectTime) <= strtotime($checkschedule[9])) {
+        $out['b'] = $checkschedule[8];
+        $out['e'] = $checkschedule[9];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[10];
+        $out['e'] = $checkschedule[11];
+        return $out;
+      }
       break;
     case 'thursday':
-      return displaySchedule(12, 13, 14, 15);
+      if (strtotime($selectTime) >= strtotime($checkschedule[12]) && strtotime($selectTime) <= strtotime($checkschedule[13])) {
+        $out['b'] = $checkschedule[12];
+        $out['e'] = $checkschedule[13];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[14];
+        $out['e'] = $checkschedule[15];
+        return $out;
+      }
       break;
     case 'friday':
-      return displaySchedule(16, 17, 18, 19);
+      if (strtotime($selectTime) >= strtotime($checkschedule[16]) && strtotime($selectTime) <= strtotime($checkschedule[17])) {
+        $out['b'] = $checkschedule[16];
+        $out['e'] = $checkschedule[17];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[18];
+        $out['e'] = $checkschedule[19];
+        return $out;
+      }
       break;
     case 'saturday':
-      return displaySchedule(20, 21, 22, 23);
+      if (strtotime($selectTime) >= strtotime($checkschedule[20]) && strtotime($selectTime) <= strtotime($checkschedule[21])) {
+        $out['b'] = $checkschedule[20];
+        $out['e'] = $checkschedule[21];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[22];
+        $out['e'] = $checkschedule[23];
+        return $out;
+      }
       break;
     case 'sunday':
-      return displaySchedule(24, 25, 26, 27);
+      if (strtotime($selectTime) >= strtotime($checkschedule[24]) && strtotime($selectTime) <= strtotime($checkschedule[25])) {
+        $out['b'] = $checkschedule[24];
+        $out['e'] = $checkschedule[25];
+        return $out;
+      } else {
+        $out['b'] = $checkschedule[26];
+        $out['e'] = $checkschedule[27];
+        return $out;
+      }
       break;
   }
 }
