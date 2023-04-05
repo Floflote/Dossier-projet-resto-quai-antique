@@ -15,5 +15,5 @@ include('./Conf/Template/Website-head-html.php');
 include('./Conf/Template/Website-navbar.php');
 include('./Page/index-content.php');
 include('./Conf/Template/Website-footer-html.php');
-include('./Design/JS/index-filter.js');
+include('./Conf/Template/index-filter-btn.php');
 include('./Conf/Template/Website-end-html.php');
