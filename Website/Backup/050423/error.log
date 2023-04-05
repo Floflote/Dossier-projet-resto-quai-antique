@@ -1,0 +1,1 @@
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'frfrfr' in 'field list'<br>SQLSTATE[42S22]: Column not found: 1054 Unknown column 'category.category_id' in 'where clause'

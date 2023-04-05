@@ -1,0 +1,314 @@
+/* Basic code for the entire page */
+:root {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 18px;
+  background: linear-gradient(#ffffffd4, rgba(171, 156, 111, 0.3));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+}
+
+/* Navbar */
+
+.navbar {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bd-navbar {
+  padding: 0;
+  background-color: transparent;
+  box-shadow: 0 0.5rem 1rem rgba(164, 135, 44, 0.15),
+    inset 0 -1px 0 rgba(164, 135, 44, 0.15);
+}
+
+.navbar-logo {
+  height: 100px;
+  width: auto;
+  margin-right: 4px;
+}
+
+.navbar .navbar-toggler {
+  top: 0.25rem;
+  right: 1rem;
+}
+
+.offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link {
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link:hover {
+  color: #a4872c;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(164, 135, 44)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler .navbar-toggler {
+  border-color: rgb(164, 135, 44);
+}
+
+.reserve-btn {
+  background-color: #a4872c;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.reserve-btn:hover {
+  background-color: #726023;
+  color: white;
+}
+
+/* Scroll to top */
+.scroll_to_top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.scroll_to_top > a > i {
+  color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll_to_top > a > i:hover {
+  color: #726023;
+}
+
+/* Footer */
+.list-inline > .list-inline-item > a > i {
+  color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-inline > .list-inline-item > a > i:hover {
+  color: #726023;
+}
+
+.list-group > .list-group-item > a {
+  color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-group > .list-group-item > a:hover {
+  color: #726023;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.logo-footer {
+  max-height: 300px;
+  width: auto;
+}
+
+/* Page index */
+/* Top section */
+.top-section-background {
+  background: url(../../Picture/Fond-top.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-attachment: fixed;
+}
+
+.see-product-btn {
+  background-color: #a4872c;
+  color: white;
+  font-weight: bold;
+  border-color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.see-product-btn:hover {
+  background-color: white;
+  color: #a4872c;
+  border-color: #a4872c;
+}
+
+/* Introduce product section */
+.intro-product {
+  background: linear-gradient(rgba(171, 156, 111, 0.626), #ffffffd4),
+    url(../../Picture/Cafe-coupe.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Products section */
+.product_category_name {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+  line-height: 26px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 22px;
+  transition: all 0.3s;
+}
+
+.product_category_name:hover {
+  color: #726023;
+}
+
+.active_category {
+  color: #a4872c;
+}
+
+.productscarte {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+.no_product {
+  font-weight: bold;
+  width: fit-content;
+  color: #a4872c;
+  display: none;
+}
+
+.thumbnail {
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  transition: border 0.3s ease-in-out;
+  text-align: center;
+  background: inherit;
+}
+
+.product-picture {
+  position: relative;
+  max-width: 200px;
+  margin: 50px auto;
+}
+
+.product-picture .picture-preview {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border-radius: 30px;
+  border: 6px solid #a4872c;
+}
+
+.product-picture .picture-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 23px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.thumbnail > .product-text > p {
+  line-height: 28px;
+  margin-top: 14px;
+}
+
+.product-price {
+  font-size: 24px;
+  line-height: 26px;
+  letter-spacing: 3px;
+  display: block;
+}
+
+/* Menus section */
+.menu-price {
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: 2px;
+  display: block;
+}
+
+/* Galery section */
+
+.content-gal-overlay {
+  position: absolute;
+  top: 1.5rem; /* p-4 */
+  bottom: 0;
+  left: 1.5rem; /* p-4 */
+  right: 0;
+  height: calc(100% - 3rem); /* 100% - 2*p-4 */
+  width: calc(100% - 3rem); /* 100% - 2*p-4 */
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #000000;
+  border-radius: 30px;
+}
+
+.content-gal:hover .content-gal-overlay {
+  opacity: 0.7;
+}
+
+.content-gal-overlay .content-gal-text-overlay {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+/* Page reservation */
+.links {
+  color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.links:hover {
+  color: #726023;
+}
+
+.monday,
+.tuesday,
+.wednesday,
+.thursday,
+.friday,
+.saturday,
+.sunday {
+  display: none;
+}
+
+.btn-check:checked + .btn {
+  color: #a4872c;
+  background-color: white;
+  border-color: #a4872c;
+}
+
+.btn-check + .btn:hover {
+  color: white;
+  background-color: #726023;
+  border-color: #726023;
+}

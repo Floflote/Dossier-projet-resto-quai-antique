@@ -1,19 +1,17 @@
 <?php
 
 session_start();
-
 include('./Conf/Template/Session-starter.php');
 //Variables
-$description = "Au restaurant Quai Antique, vous pourrez venir vous régaler avec nos produits bio et bons cuisinés avec amour par nos chefs";
+$description = "N'hésitez pas à réserver une table dans norte restaurant afin d'être le mieux accueilli possible";
 $keywords = "restaurant, gastronomique, plats, menus, reservation, manger, diner, dejeuner, produits, biologique, écologique";
-$title = "Page d'accueil du restaurant Quai Antique";
+$title = "Page de réservation du restaurant Quai Antiqu";
 
 //Files
 include('./Database/connexion.php');
 include('./Conf/Function/Function.php');
 include('./Conf/Template/Website-head-html.php');
 include('./Conf/Template/Website-navbar.php');
-include('./Page/index-content.php');
+include('./Page/Reserve-table-content.php');
 include('./Conf/Template/Website-footer-html.php');
-include('./Design/JS/index-filter.js');
 include('./Conf/Template/Website-end-html.php');

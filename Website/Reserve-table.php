@@ -3,9 +3,9 @@
 session_start();
 include('./Conf/Template/Session-starter.php');
 //Variables
-$description = "N'hésitez pas à réserver une table dans norte restaurant afin d'être le mieux accueilli possible";
+$description = "N'hésitez pas à réserver une table dans notre restaurant afin d'être le mieux accueilli possible";
 $keywords = "restaurant, gastronomique, plats, menus, reservation, manger, diner, dejeuner, produits, biologique, écologique";
-$title = "Page de réservation du restaurant Quai Antiqu";
+$title = "Page de réservation du restaurant Quai Antique";
 
 //Files
 include('./Database/connexion.php');
