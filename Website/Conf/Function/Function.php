@@ -214,6 +214,82 @@ function checkSchedu($selectDay, $selectTime)
   }
 }
 
+/* Jours et temps de la journée */
+function displayWeekdayTime($ckt)
+{
+  /* Lundi midi */
+  if ($ckt >= 0 && $ckt <= 1) {
+    $resultday['wd'] = 'monday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Lundi soir */
+  } elseif ($ckt >= 2 && $ckt <= 3) {
+    $resultday['wd'] = 'monday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Mardi midi */
+  } elseif ($ckt >= 4 && $ckt <= 5) {
+    $resultday['wd'] = 'tuesday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Mardi soir */
+  } elseif ($ckt >= 6 && $ckt <= 7) {
+    $resultday['wd'] = 'tuesday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Mercredi midi */
+  } elseif ($ckt >= 8 && $ckt <= 9) {
+    $resultday['wd'] = 'wednesday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Mercredi soir */
+  } elseif ($ckt >= 10 && $ckt <= 11) {
+    $resultday['wd'] = 'wednesday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Jeudi midi */
+  } elseif ($ckt >= 12 && $ckt <= 13) {
+    $resultday['wd'] = 'thursday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Jeudi soir */
+  } elseif ($ckt >= 14 && $ckt <= 15) {
+    $resultday['wd'] = 'thursday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Vendredi midi */
+  } elseif ($ckt >= 16 && $ckt <= 17) {
+    $resultday['wd'] = 'friday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Vendredi soir */
+  } elseif ($ckt >= 18 && $ckt <= 19) {
+    $resultday['wd'] = 'friday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Samedi midi */
+  } elseif ($ckt >= 20 && $ckt <= 21) {
+    $resultday['wd'] = 'saturday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Samedi soir */
+  } elseif ($ckt >= 22 && $ckt <= 23) {
+    $resultday['wd'] = 'saturday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+    /* Dimanche midi */
+  } elseif ($ckt >= 24 && $ckt <= 25) {
+    $resultday['wd'] = 'sunday';
+    $resultday['td'] = "Midi:";
+    return $resultday;
+    /* Dimanche soir */
+  } elseif ($ckt >= 26 && $ckt <= 27) {
+    $resultday['wd'] = 'sunday';
+    $resultday['td'] = "Soir:";
+    return $resultday;
+  }
+}
+
 /* Afficher horaires selon dates */
 function inputTime($bg, $ed, $day)
 {

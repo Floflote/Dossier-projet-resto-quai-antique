@@ -6,8 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;">
   <div class="text-center py-5">
-    <h1
-      style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
+    <h1 style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px; text-shadow: -1px -1px 0 #a4872c, 1px -1px 0 #a4872c, -1px 1px 0 #a4872c, 1px 1px 0 #a4872c;">
       Création de compte
     </h1>
   </div>
@@ -19,16 +18,13 @@
 <section class="create_compte_section p-5">
   <div class="container-fluid text-center">
     <h1>Créer son compte</h1>
-    <form method="POST" id="formcreaco" class="needs-validation" action="Creationcompte.php"
-      enctype="multipart/form-data" novalidate>
+    <form method="POST" id="formcreaco" class="needs-validation" action="Creationcompte.php" enctype="multipart/form-data" novalidate>
 
       <!-- Mail -->
 
       <div class="row col-sm-4 mx-auto" style="margin-bottom: 1rem;">
         <label for="creaco_email" class="form-label">Identifiant (mail)</label>
-        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+"
-          value="<?php echo (isset($_POST['creaco_email'])) ? htmlspecialchars($_POST['creaco_email']) : '' ?>"
-          placeholder="monmail@mail.com" name="creaco_email" id="creaco_email" required>
+        <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" value="<?php echo (isset($_POST['creaco_email'])) ? htmlspecialchars($_POST['creaco_email']) : '' ?>" placeholder="monmail@mail.com" name="creaco_email" id="creaco_email" required>
         <div class="invalid-feedback">
           Vous devez entrer une adresse mail valide !
         </div>
@@ -44,10 +40,7 @@
             lettre majuscule, pas
             d'espace et un caractère spécial et faire entre 8 et 16 caractères)</span>
         </label>
-        <input type="password" class="form-control"
-          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"
-          value="<?php echo (isset($_POST['creaco_password'])) ? htmlspecialchars($_POST['creaco_password']) : '' ?>"
-          placeholder="************" name="creaco_password" id="creaco_password" required>
+        <input type="password" class="form-control" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" value="<?php echo (isset($_POST['creaco_password'])) ? htmlspecialchars($_POST['creaco_password']) : '' ?>" placeholder="************" name="creaco_password" id="creaco_password" required>
         <div class="invalid-feedback">
           Vous devez entrer un mot de passe valide !
         </div>
@@ -59,10 +52,7 @@
         <label for="creaco_password_conf" class="form-label">
           Confirmer le mot de passe
         </label>
-        <input type="password" class="form-control"
-          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"
-          value="<?php echo (isset($_POST['creaco_password_conf'])) ? htmlspecialchars($_POST['creaco_password_conf']) : '' ?>"
-          placeholder="************" name="creaco_password_conf" id="creaco_password_conf" required>
+        <input type="password" class="form-control" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" value="<?php echo (isset($_POST['creaco_password_conf'])) ? htmlspecialchars($_POST['creaco_password_conf']) : '' ?>" placeholder="************" name="creaco_password_conf" id="creaco_password_conf" required>
         <div class="invalid-feedback">
           Vous devez entrer un mot de passe valide !
         </div>
@@ -94,9 +84,7 @@
         <label for="creaco_allergen" class="form-label">
           Des allergènes à signaler ?
         </label>
-        <textarea name="creaco_allergen" class="form-control" id="creaco_allergen"
-          onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255"
-          required><?php echo (isset($_POST['creaco_allergen'])) ? htmlspecialchars($_POST['creaco_allergen']) : ''; ?></textarea>
+        <textarea name="creaco_allergen" class="form-control" id="creaco_allergen" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255" required><?php echo (isset($_POST['creaco_allergen'])) ? htmlspecialchars($_POST['creaco_allergen']) : ''; ?></textarea>
         <div class="invalid-feedback">
           Ce champ ne doit pas être vide ! Si vous n'en avez pas, mettre "Aucun".
         </div>
@@ -123,10 +111,10 @@
 
       if (isset($_POST['submit_create_compte_form']) && ((test_input($_POST['creaco_password'])) !== (test_input($_POST['creaco_password_conf']))) && $_SERVER['REQUEST_METHOD'] == 'POST') {
       ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Attention, le mot de passe est différent !
-      </div>
-      <?php
+        <div style="color: #b02a37; margin-bottom: 1rem;">
+          Attention, le mot de passe est différent !
+        </div>
+        <?php
 
         /* Passwords are the same */
 
@@ -145,6 +133,10 @@
           $verifycustomails = $statementcustomail->fetchAll();
           $mailexist = 0;
           $testmail = $creaco_mail;
+
+          $statementverifadmin = $pdo->prepare("SELECT * FROM admin WHERE admin_email = ?");
+          $statementverifadmin->execute(array($forget_mail));
+          $compte_admin = $statementverifadmin->fetch();
         } catch (Exception $e) {
           file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
           echo 'Une erreur s\'est produite, veuillez réessayer: ';
@@ -156,12 +148,16 @@
           }
         }
 
+        if ($compte_admin) {
+          $mailexist = 1;
+        }
+
         if ($mailexist == 1) {
         ?>
-      <div style="color: #b02a37; margin-bottom: 1rem;">
-        Votre email n’est pas autorisé à s’inscrire !
-      </div>
-      <?php
+          <div style="color: #b02a37; margin-bottom: 1rem;">
+            Votre email n’est pas autorisé à s’inscrire !
+          </div>
+          <?php
         } else {
           try {
             $statementaddcompt = $pdo->prepare("INSERT INTO customer (customer_id, customer_mail, customer_password,
@@ -173,13 +169,13 @@
             $statementaddcompt->execute();
           ?>
 
-      <!-- Ajout du compte validé -->
+            <!-- Ajout du compte validé -->
 
-      <script type="text/javascript">
-      Swal.fire("Compte créé", "Vous pouvez dès maintenant l'utiliser !", "success").then((value) => {
-        window.location.replace("Espaceconnexion.php");
-      });
-      </script>
+            <script type="text/javascript">
+              Swal.fire("Compte créé", "Vous pouvez dès maintenant l'utiliser !", "success").then((value) => {
+                window.location.replace("Espaceconnexion.php");
+              });
+            </script>
 
       <?php
             exit();
@@ -192,8 +188,7 @@
       ?>
 
       <div style="margin-bottom: 1rem;">
-        <button type="submit" name="submit_create_compte_form" class="btn reserve-btn ms-3"
-          style="text-transform: uppercase;">
+        <button type="submit" name="submit_create_compte_form" class="btn reserve-btn ms-3" style="text-transform: uppercase;">
           <i class="fa-solid fa-user-plus pe-2"></i>Créer le compte
         </button>
       </div>
