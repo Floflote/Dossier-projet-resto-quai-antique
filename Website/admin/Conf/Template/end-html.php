@@ -3,7 +3,7 @@
 </div>
 
 <!-- My JS -->
-<script type="text/javascript" src="./Design/JS/admini1.js"></script>
+<script type="text/javascript" src="./Design/JS/admin.js"></script>
 
 </body>
 

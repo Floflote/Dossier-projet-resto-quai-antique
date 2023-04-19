@@ -15,7 +15,7 @@ $("#add_category_bttn").click(function () {
       dataType: "JSON",
       success: function (message) {
         if (message["alert"] == "Attention") {
-          Swal.fire("Attention", message["message"], "error").then(
+          Swal.fire("Attention", message["message"], "warning").then(
             (value) => {}
           );
         }

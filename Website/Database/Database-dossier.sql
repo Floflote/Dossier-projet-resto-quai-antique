@@ -7,23 +7,6 @@ CREATE TABLE admin
   admin_password VARCHAR(60) NOT NULL
 );
 
-CREATE TABLE website_setting
-(
-  setting_id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  setting_restaurant_name VARCHAR(255) NOT NULL,
-  setting_restaurant_mail VARCHAR(255) NOT NULL,
-  setting_restaurant_phone VARCHAR(255) NOT NULL,
-  setting_restaurant_address VARCHAR(255) NOT NULL,
-  setting_restaurant_monday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_tuesday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_wednesday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_thursday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_friday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_saturday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_sunday_hours VARCHAR(255) NOT NULL,
-  setting_restaurant_nbcustomers INT(3) NOT NULL
-);
-
 CREATE TABLE picture
 (
   picture_id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -65,7 +48,8 @@ CREATE TABLE customer
   customer_id CHAR(36) NOT NULL UNIQUE,
   customer_mail VARCHAR(255) NOT NULL,
   customer_password VARCHAR(60) NOT NULL,
-  customer_allergen VARCHAR(255) NOT NULL
+  customer_allergen VARCHAR(255) NOT NULL,
+  customer_nbconv INT(2) NOT NULL
 );
 
 CREATE TABLE reservation
@@ -77,34 +61,6 @@ CREATE TABLE reservation
   reservation_mail VARCHAR(255) NOT NULL,
   reservation_allergen VARCHAR(255) NOT NULL,
 );
-
-INSERT INTO website_setting 
-  (setting_restaurant_name, 
-  setting_restaurant_mail, 
-  setting_restaurant_phone, 
-  setting_restaurant_address, 
-  setting_restaurant_monday_hours, 
-  setting_restaurant_tuesday_hours, 
-  setting_restaurant_wednesday_hours, 
-  setting_restaurant_thursday_hours, 
-  setting_restaurant_friday_hours, 
-  setting_restaurant_saturday_hours, 
-  setting_restaurant_sunday_hours, 
-  setting_restaurant_nbcustomers) VALUES 
-("Quai Antique", 
-"quai.antique@mail.com", 
-"0606060606", 
-"1 rue Martin - 00001 Martinville", 
-"12h00 - 14h00 et 19h00 - 22h00", 
-"12h00 - 14h00 et 19h00 - 22h00",
-"Fermé",
-"12h00 - 14h00 et 19h00 - 22h00",
-"12h00 - 14h00 et 19h00 - 22h00",
-"19h00 - 23h00",
-"12h00 - 14h00", 
-20);
-
-ALTER TABLE customer ADD customer_nbconv INT(2) NOT NULL;
 
 /* Website setting v2 */
 

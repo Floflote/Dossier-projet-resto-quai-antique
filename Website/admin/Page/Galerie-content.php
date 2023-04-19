@@ -37,16 +37,16 @@ try {
       <div class="modal fade" id="add_new_picture_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <form method="POST" enctype="multipart/form-data">
-              <div class="modal-header">
-                <h5 class="modal-title" style="text-transform: uppercase;
+            <div class="modal-header">
+              <h5 class="modal-title" style="text-transform: uppercase;
               font-family: Montserrat, sans-serif;
               font-weight: bold;
               font-size: 1rem;">
-                  Ajouter une image</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
+                Ajouter une image</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" enctype="multipart/form-data">
 
                 <!-- Picture name -->
 
@@ -112,15 +112,16 @@ try {
                   ?>
                 </div>
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" style="border-radius: 30px;"
-                  data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" name="add_new_picture" class="btn btn-info"
-                  style="border-radius: 30px; color: white;">Ajouter
-                  l'image</button>
-              </div>
-            </form>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" style="border-radius: 30px;"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit" name="add_new_picture" class="btn btn-info"
+                    style="border-radius: 30px; color: white;">Ajouter
+                    l'image</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
