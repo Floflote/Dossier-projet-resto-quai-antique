@@ -1,4 +1,4 @@
-CREATE SCHEMA restaurant_qa;
+CREATE SCHEMA resto_projet_qa;
 
 CREATE TABLE admin
 (
